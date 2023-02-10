@@ -1,0 +1,22 @@
+{
+  "name": "open-knight's-tours",
+  "version": "1.0.0",
+  "description": "open knight's tours",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+	"pack": "electron-builder --dir",  
+	"dist": "electron-builder"
+  },
+  "keywords": [
+    "Electron"
+  ],
+  "author": "frozen",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^22.2.0"
+  },
+   "build": {  
+	"appId": "frozen.ds"
+	}
+}
