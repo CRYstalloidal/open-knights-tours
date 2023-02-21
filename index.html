@@ -5,7 +5,7 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
     <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
+    <title>knight's tours</title>
   </head>
   <body>
 
@@ -36,12 +36,16 @@
       <div class="divide"></div>
       <div>棋盘大小：</div>
       (&nbsp<input type="text" id="x" value="9"/>&nbsp;,&nbsp;
-      <input type="text" id="y" value="10"/>&nbsp)
-      &nbsp;
+      <input type="text" id="y" value="10"/>&nbsp)&nbsp;
+
       <div>起始位置：</div>
       (&nbsp<input type="text" id="start-x" value="1"/>&nbsp;,&nbsp;
-      <input type="text" id="start-y" value="1"/>&nbsp)
-      &nbsp;&nbsp;
+      <input type="text" id="start-y" value="1"/>&nbsp)&nbsp;
+      <div>跳过动画：</div>
+      <input type="checkbox" id="process">&nbsp;&nbsp;
+<!--      (&nbsp<input type="text" id="start-x" value="1"/>&nbsp;,&nbsp;-->
+<!--      <input type="text" id="start-y" value="1"/>&nbsp)-->
+
       <button id="start">开始</button>
     </div>
     <div class="square">

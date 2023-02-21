@@ -38,7 +38,7 @@ body{
     background-image: url("horse.png");
     background-size: 40px 40px;
     transform: translate(-50%,-50%);
-    transition: left 1s ease 0s,top 1s ease 0s;
+    transition: left 0.5s ease 0s,top 0.5s ease 0s;
 
     left: 20px;
     top: 20px;
@@ -53,14 +53,13 @@ body{
 }
 .x{
     position: absolute;
-    transform: translate(-50%,-60%);
-    transition: left 1s ease 0s,top 1s ease 0s;
+    transform: translate(-50%,-50%);
     display: none;
 
     left: 20px;
     top: 20px;
     z-index: 6;
-    font-size: 30px;
+    font-size: 25px;
 }
 .item {
     border: 0.1px #ccc solid;

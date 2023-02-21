@@ -21,9 +21,10 @@ window.onload=function () {
         step = document.getElementsByClassName("inner-step")[0]
         step.innerHTML = ""
     }
-    leaveX = function(n,x,y){
+    leaveX = function(n,x,y,i){
         let mark = document.getElementsByClassName("x")[(y-1)*n+x-1]
         mark.style.display = "block"
+        mark.innerText=i
     }
     calcRoute = function (x,y,startx,starty) {
         let moveStack = []
@@ -194,6 +195,7 @@ window.onload=function () {
     y = document.getElementById("y")
     startx = document.getElementById("start-x")
     starty = document.getElementById("start-y")
+    process = document.getElementById("process")
     const { ipcRenderer } = require('electron')
     var interval
 
@@ -205,6 +207,9 @@ window.onload=function () {
         yValue = parseInt(y.value)
         startxValue = parseInt(startx.value)
         startyValue = parseInt(starty.value)
+        ifProcess = !process.checked
+
+        console.log(ifProcess)
         checksize = function (t,max,min) {
             return t<=max && t>=min &&t
         }
@@ -241,18 +246,31 @@ window.onload=function () {
             let t = 1
             clearTrace()
             clearInterval(interval)
-            interval = setInterval(function () {
-                if(!stack[t]){
-                    clearInterval(interval)
-                    return
+            if(ifProcess){
+                interval = setInterval(function () {
+                    if(!stack[t]){
+                        clearInterval(interval)
+                        return
+                    }
+                    if(t>1)
+                        leaveX(xValue,stack[t-1].x,stack[t-1].y,t-1)
+                    moveHorse(stack[t].x,stack[t].y)
+                    addTrace(t,stack[t].x,stack[t].y)
+                    t++
+                },500)
+            }
+            else {
+                while (stack[t]){
+                    if(t>1)
+                        leaveX(xValue,stack[t-1].x,stack[t-1].y,t-1)
+                    moveHorse(stack[t].x,stack[t].y)
+                    addTrace(t,stack[t].x,stack[t].y)
+                    t++
                 }
-                if(t>1)
-                    leaveX(xValue,stack[t-1].x,stack[t-1].y)
-                moveHorse(stack[t].x,stack[t].y)
-                addTrace(t,stack[t].x,stack[t].y)
-                t++
-            },1000)
-        }else {
+            }
+
+        }
+        else {
             ipcRenderer.send("inputerror")
         }
     })
