@@ -1,6 +1,6 @@
 # open knight's tour
 
-**Will calculate an open knight's tour with given point and board size.**
+**Will calculate an open knight's tour with given point and board size.** <br/>
 马的遍历问题图形化解决方案
 - `package.json` - Points to the app's main file and lists its details and dependencies.
 - `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
